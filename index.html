@@ -9,13 +9,11 @@
       --bg:#040b16;
       --bg2:#08111f;
       --card:#0f1a2d;
-      --card2:#121f36;
       --text:#f3f4f6;
       --muted:#aeb9cb;
       --line:#22314d;
       --accent:#46c4ff;
       --accent2:#6d63ff;
-      --red:#e25b5b;
     }
 
     *{
@@ -25,7 +23,7 @@
 
     body{
       margin:0;
-      font-family: Arial, Helvetica, sans-serif;
+      font-family:Arial, Helvetica, sans-serif;
       color:var(--text);
       background:
         radial-gradient(circle at top left, rgba(70,196,255,0.10), transparent 28%),
@@ -40,7 +38,7 @@
     }
 
     .container{
-      width:min(1160px, 92%);
+      width:min(1180px, 92%);
       margin:0 auto;
     }
 
@@ -48,8 +46,8 @@
       position:sticky;
       top:0;
       z-index:1000;
-      backdrop-filter: blur(10px);
-      background:rgba(4,11,22,0.76);
+      backdrop-filter:blur(10px);
+      background:rgba(4,11,22,0.80);
       border-bottom:1px solid rgba(255,255,255,0.06);
     }
 
@@ -61,22 +59,11 @@
       gap:20px;
     }
 
-    .brand{
-      display:flex;
-      align-items:center;
-      gap:14px;
-    }
-
     .brand img{
-      height:44px;
+      height:64px;
       width:auto;
-      border-radius:8px;
-    }
-
-    .brand-name{
-      font-size:20px;
-      font-weight:700;
-      letter-spacing:0.2px;
+      border-radius:10px;
+      display:block;
     }
 
     .nav-links{
@@ -120,35 +107,8 @@
     }
 
     .hero{
-      position:relative;
-      overflow:hidden;
-      padding:88px 0 72px;
-    }
-
-    .hero:before,
-    .hero:after{
-      content:"";
-      position:absolute;
-      border-radius:999px;
-      filter:blur(80px);
-      opacity:0.28;
-      pointer-events:none;
-    }
-
-    .hero:before{
-      width:300px;
-      height:300px;
-      background:var(--accent);
-      top:0;
-      left:-80px;
-    }
-
-    .hero:after{
-      width:340px;
-      height:340px;
-      background:var(--accent2);
-      top:40px;
-      right:-100px;
+      padding:76px 0 40px;
+      text-align:center;
     }
 
     .intro-pill{
@@ -162,17 +122,10 @@
       background:rgba(255,255,255,0.02);
     }
 
-    .hero-grid{
-      display:grid;
-      grid-template-columns: 1.15fr 0.85fr;
-      gap:42px;
-      align-items:center;
-    }
-
     .hero h1{
-      font-size:68px;
-      line-height:1.02;
-      margin:0 0 18px;
+      font-size:64px;
+      line-height:1.05;
+      margin:0 0 16px;
       letter-spacing:-1.8px;
     }
 
@@ -186,71 +139,99 @@
 
     .hero h2{
       font-size:24px;
-      margin:0 0 20px;
+      margin:0 0 18px;
       color:#ffffff;
       font-weight:700;
     }
 
     .hero p{
-      max-width:720px;
+      max-width:860px;
+      margin:0 auto 26px;
       color:var(--muted);
-      font-size:22px;
-      margin:0 0 30px;
+      font-size:21px;
     }
 
     .hero-actions{
       display:flex;
+      justify-content:center;
       gap:16px;
       flex-wrap:wrap;
-      margin-top:10px;
-    }
-
-    .hero-card{
-      background:linear-gradient(180deg, rgba(17,28,48,0.96), rgba(10,18,31,0.96));
-      border:1px solid rgba(255,255,255,0.08);
-      border-radius:24px;
-      padding:28px;
-      box-shadow:0 16px 50px rgba(0,0,0,0.28);
-    }
-
-    .hero-logo{
-      width:100%;
-      max-width:420px;
-      display:block;
-      margin:0 auto 18px;
-      border-radius:14px;
-    }
-
-    .hero-card h3{
-      margin:0 0 10px;
-      font-size:22px;
-      text-align:center;
-    }
-
-    .hero-card p{
-      margin:0;
-      color:var(--muted);
-      font-size:16px;
-      text-align:center;
+      margin-top:8px;
     }
 
     .section{
-      padding:74px 0;
+      padding:72px 0;
       border-top:1px solid rgba(255,255,255,0.05);
     }
 
     .section h2{
-      font-size:38px;
-      margin:0 0 14px;
       text-align:center;
+      font-size:42px;
+      margin:0 0 14px;
     }
 
     .section-intro{
-      max-width:880px;
-      margin:0 auto 36px;
+      max-width:860px;
+      margin:0 auto 42px;
       text-align:center;
       color:var(--muted);
       font-size:18px;
+    }
+
+    .solutions-grid{
+      display:grid;
+      grid-template-columns:repeat(2, minmax(0,1fr));
+      gap:30px;
+    }
+
+    .solution-card{
+      background:linear-gradient(180deg, rgba(17,28,48,0.96), rgba(11,19,33,0.96));
+      border:1px solid rgba(255,255,255,0.08);
+      border-radius:24px;
+      padding:34px 32px;
+      box-shadow:0 14px 34px rgba(0,0,0,0.20);
+      min-height:320px;
+    }
+
+    .solution-icon{
+      width:64px;
+      height:64px;
+      border-radius:18px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      font-size:30px;
+      margin-bottom:24px;
+    }
+
+    .icon-health{
+      background:rgba(70,196,255,0.10);
+      color:var(--accent);
+    }
+
+    .icon-krai{
+      background:rgba(109,99,255,0.12);
+      color:var(--accent2);
+    }
+
+    .solution-card h3{
+      font-size:24px;
+      margin:0 0 14px;
+    }
+
+    .solution-card p{
+      color:var(--muted);
+      font-size:16px;
+      margin:0 0 22px;
+    }
+
+    .solution-link{
+      font-weight:700;
+      color:var(--accent);
+    }
+
+    .solution-link.krai{
+      color:var(--accent2);
     }
 
     .two-col{
@@ -346,7 +327,7 @@
     }
 
     @media (max-width: 1024px){
-      .hero-grid,
+      .solutions-grid,
       .two-col{
         grid-template-columns:1fr;
       }
@@ -356,11 +337,11 @@
       }
 
       .hero h1{
-        font-size:54px;
+        font-size:48px;
       }
 
       .hero p{
-        font-size:20px;
+        font-size:18px;
       }
     }
 
@@ -374,20 +355,16 @@
         gap:16px;
       }
 
-      .hero{
-        padding-top:56px;
+      .brand img{
+        height:54px;
       }
 
       .hero h1{
-        font-size:40px;
+        font-size:38px;
       }
 
       .hero h2{
         font-size:20px;
-      }
-
-      .hero p{
-        font-size:18px;
       }
 
       .pillars{
@@ -402,10 +379,10 @@
     <div class="container nav-inner">
       <div class="brand">
         <img src="logo.jpg" alt="KalpaneAI logo">
-        <div class="brand-name">KalpaneAI</div>
       </div>
 
       <div class="nav-links">
+        <a href="#solutions">Solutions</a>
         <a href="#healthcare">Healthcare RAG</a>
         <a href="#krai">KRAI Index</a>
         <a href="#vision">Vision</a>
@@ -415,35 +392,51 @@
   </nav>
 
   <section class="hero">
-    <div class="container hero-grid">
-      <div>
-        <div class="intro-pill">Introducing KalpaneAI</div>
+    <div class="container">
+      <div class="intro-pill">Introducing KalpaneAI</div>
 
-        <h1>
-          From Medical Texts<br>
-          to <span class="gradient-text">Responsible AI</span>
-        </h1>
+      <h1>
+        Two Powerful <span class="gradient-text">AI Solutions</span>
+      </h1>
 
-        <h2>Responsible AI &amp; Healthcare Knowledge Systems</h2>
+      <h2>Responsible AI &amp; Healthcare Knowledge Systems</h2>
 
-        <p>
-          KalpaneAI builds domain-specialized AI solutions across two strategic tracks:
-          transforming trusted medical knowledge into actionable intelligence, and
-          evaluating market-ready AI systems against Dutch and EU standards.
-        </p>
+      <p>
+        KalpaneAI bridges trusted domain knowledge and Responsible AI governance through two distinct solution tracks: Healthcare RAG and the KRAI Index.
+      </p>
 
-        <div class="hero-actions">
-          <a href="#healthcare" class="btn btn-primary">Explore Healthcare AI</a>
-          <a href="#krai" class="btn btn-secondary">Discover KRAI Index</a>
-        </div>
+      <div class="hero-actions">
+        <a href="#healthcare" class="btn btn-primary">Explore Healthcare AI</a>
+        <a href="#krai" class="btn btn-secondary">Discover KRAI Index</a>
       </div>
+    </div>
+  </section>
 
-      <div class="hero-card">
-        <img src="logo.jpg" alt="KalpaneAI logo" class="hero-logo">
-        <h3>Responsible AI — Ensuring Dutch &amp; EU Standards Compliance</h3>
-        <p>
-          Bridging healthcare knowledge systems and Responsible AI governance for the next generation of trusted AI.
-        </p>
+  <section class="section" id="solutions">
+    <div class="container">
+      <h2>Two Powerful Solutions</h2>
+      <p class="section-intro">
+        KalpaneAI bridges the gap between advanced AI capability and real-world application through two focused and complementary offerings.
+      </p>
+
+      <div class="solutions-grid">
+        <div class="solution-card">
+          <div class="solution-icon icon-health">♡</div>
+          <h3>Healthcare RAG</h3>
+          <p>
+            Domain-specialized Retrieval-Augmented Generation that pulls from trusted medical manuals and clinical references to reduce information overload and support faster, more informed healthcare decisions.
+          </p>
+          <a href="#healthcare" class="solution-link">Explore Solution →</a>
+        </div>
+
+        <div class="solution-card">
+          <div class="solution-icon icon-krai">⚖</div>
+          <h3>KRAI Index</h3>
+          <p>
+            The KalpaneAI Responsible AI Index evaluates market-ready LLMs against Dutch and EU standards across privacy, governance, robustness, bias, and human oversight.
+          </p>
+          <a href="#krai" class="solution-link krai">View Ratings →</a>
+        </div>
       </div>
     </div>
   </section>
@@ -452,34 +445,32 @@
     <div class="container">
       <h2>Healthcare AI Knowledge Systems</h2>
       <p class="section-intro">
-        KalpaneAI applies Retrieval-Augmented Generation (RAG) to trusted medical manuals and research papers,
-        converting authoritative references into clear, reliable, and instantly accessible answers.
+        KalpaneAI applies Retrieval-Augmented Generation to trusted medical manuals and research papers, converting authoritative references into clear, reliable, and instantly accessible answers.
       </p>
 
       <div class="two-col">
         <div class="card">
           <h3>What We Solve</h3>
           <p>
-            Healthcare professionals face information overload, fragmented access to knowledge, cognitive burden,
-            and the risk of outdated references. KalpaneAI is designed to reduce that friction.
+            Healthcare professionals face information overload, fragmented access to knowledge, cognitive burden, and the risk of outdated references. KalpaneAI is designed to reduce that friction.
           </p>
           <ul class="bullets">
             <li>Transforms trusted medical manuals into real-time, actionable insights</li>
             <li>Improves access to clinical knowledge under time pressure</li>
             <li>Supports safer and more informed healthcare decision-making</li>
-            <li>Can scale from one source to multiple medical references and local guidelines</li>
+            <li>Expandable to local hospital and country-specific guidelines</li>
           </ul>
         </div>
 
         <div class="card">
           <h3>How It Works</h3>
           <p>
-            The solution uses RAG to retrieve the most relevant content from trusted sources and combines it with generative AI to produce concise, evidence-backed responses.
+            The solution uses smart retrieval to pull relevant content from trusted sources and combines it with generative AI to produce concise, evidence-backed responses.
           </p>
           <ul class="bullets">
-            <li>Smart retrieval from sources such as the Merck Manual</li>
-            <li>AI-powered clarity grounded in authoritative references</li>
-            <li>Expandable to country-specific and hospital-specific guidelines</li>
+            <li>Smart retrieval from trusted medical references such as the Merck Manual</li>
+            <li>AI-powered clarity grounded in authoritative sources</li>
+            <li>Can extend to NHS, Dutch, or hospital-specific guidelines</li>
             <li>Designed for domain-focused healthcare knowledge workflows</li>
           </ul>
         </div>
@@ -491,7 +482,7 @@
     <div class="container">
       <h2>KRAI Index — Responsible AI Evaluation</h2>
       <p class="section-intro">
-        KalpaneAI is building a practical Responsible AI evaluation approach to help organisations understand how AI systems align with Dutch and EU expectations.
+        KalpaneAI is building a practical Responsible AI evaluation framework to help organisations understand how AI systems align with Dutch and EU regulatory expectations.
       </p>
 
       <div class="pillars">
@@ -502,22 +493,22 @@
 
         <div class="pillar">
           <strong>Data Privacy &amp; Governance</strong>
-          <p>GDPR principles, traceability, lawful processing, access control, information management, and AP-aligned governance.</p>
+          <p>GDPR principles, lawful processing, access control, traceability, and AP-aligned governance.</p>
         </div>
 
         <div class="pillar">
           <strong>Robustness &amp; Hallucination</strong>
-          <p>Reliability, validation layers, guardrails, fallback mechanisms, and the reduction of plausible but incorrect outputs.</p>
+          <p>Reliability, validation layers, guardrails, fallback mechanisms, and control of plausible but incorrect outputs.</p>
         </div>
 
         <div class="pillar">
           <strong>Bias &amp; Discrimination</strong>
-          <p>Fairness testing, non-discrimination, transparency, and mitigation of skewed or harmful outputs across users and contexts.</p>
+          <p>Fairness testing, transparency, non-discrimination, and mitigation of skewed or harmful outputs.</p>
         </div>
 
         <div class="pillar">
           <strong>Human in the Loop</strong>
-          <p>Meaningful oversight, interpretability, accountability, escalation paths, and support for trusted human decision-making.</p>
+          <p>Meaningful oversight, accountability, interpretability, escalation paths, and trusted decision support.</p>
         </div>
       </div>
     </div>
@@ -527,8 +518,7 @@
     <div class="container">
       <h2>Vision</h2>
       <p class="section-intro">
-        KalpaneAI believes that the future of AI will be shaped not only by model capability,
-        but by how responsibly those systems are governed, evaluated, and applied in real-world domains.
+        KalpaneAI believes that the future of AI will be shaped not only by model capability, but by how responsibly those systems are governed, evaluated, and applied in real-world domains.
       </p>
 
       <div class="quote">
