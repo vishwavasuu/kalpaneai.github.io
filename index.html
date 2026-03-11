@@ -1,549 +1,428 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>KalpaneAI</title>
-  <style>
-    :root{
-      --bg:#040b16;
-      --bg2:#08111f;
-      --card:#0f1a2d;
-      --text:#f3f4f6;
-      --muted:#aeb9cb;
-      --line:#22314d;
-      --accent:#46c4ff;
-      --accent2:#6d63ff;
-    }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>KalpaneAI</title>
 
-    *{
-      box-sizing:border-box;
-      scroll-behavior:smooth;
-    }
+<style>
 
-    body{
-      margin:0;
-      font-family:Arial, Helvetica, sans-serif;
-      color:var(--text);
-      background:
-        radial-gradient(circle at top left, rgba(70,196,255,0.10), transparent 28%),
-        radial-gradient(circle at top right, rgba(109,99,255,0.10), transparent 28%),
-        linear-gradient(180deg, var(--bg), var(--bg2));
-      line-height:1.6;
-    }
+:root{
+--bg:#040b16;
+--bg2:#08111f;
+--card:#0f1a2d;
+--text:#f3f4f6;
+--muted:#aeb9cb;
+--line:#22314d;
+--accent:#46c4ff;
+--accent2:#6d63ff;
+}
 
-    a{
-      color:inherit;
-      text-decoration:none;
-    }
+*{
+box-sizing:border-box;
+scroll-behavior:smooth;
+}
 
-    .container{
-      width:min(1180px, 92%);
-      margin:0 auto;
-    }
+body{
+margin:0;
+font-family:Arial, Helvetica, sans-serif;
+color:var(--text);
+background:
+radial-gradient(circle at top left, rgba(70,196,255,0.10), transparent 28%),
+radial-gradient(circle at top right, rgba(109,99,255,0.10), transparent 28%),
+linear-gradient(180deg, var(--bg), var(--bg2));
+line-height:1.6;
+}
 
-    .navbar{
-      position:sticky;
-      top:0;
-      z-index:1000;
-      backdrop-filter:blur(10px);
-      background:rgba(4,11,22,0.80);
-      border-bottom:1px solid rgba(255,255,255,0.06);
-    }
+.container{
+width:min(1180px, 92%);
+margin:auto;
+}
 
-    .nav-inner{
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      padding:16px 0;
-      gap:20px;
-    }
+a{
+color:inherit;
+text-decoration:none;
+}
 
-    .brand img{
-      height:64px;
-      width:auto;
-      border-radius:10px;
-      display:block;
-    }
+.navbar{
+position:sticky;
+top:0;
+background:rgba(4,11,22,0.80);
+border-bottom:1px solid rgba(255,255,255,0.06);
+}
 
-    .nav-links{
-      display:flex;
-      gap:28px;
-      align-items:center;
-      flex-wrap:wrap;
-    }
+.nav-inner{
+display:flex;
+align-items:center;
+justify-content:space-between;
+padding:16px 0;
+}
 
-    .nav-links a{
-      color:var(--muted);
-      font-size:15px;
-    }
+.brand img{
+height:70px;
+}
 
-    .nav-links a:hover{
-      color:#fff;
-    }
+.nav-links{
+display:flex;
+gap:28px;
+align-items:center;
+}
 
-    .btn{
-      display:inline-block;
-      padding:14px 24px;
-      border-radius:14px;
-      font-weight:700;
-      transition:0.2s ease;
-    }
+.nav-links a{
+color:var(--muted);
+font-size:15px;
+}
 
-    .btn-primary{
-      background:linear-gradient(90deg, var(--accent), var(--accent2));
-      color:#fff;
-      box-shadow:0 8px 24px rgba(70,196,255,0.18);
-    }
+.nav-links a:hover{
+color:#fff;
+}
 
-    .btn-secondary{
-      border:1px solid rgba(255,255,255,0.12);
-      background:rgba(255,255,255,0.02);
-      color:#fff;
-    }
+.btn{
+display:inline-block;
+padding:14px 24px;
+border-radius:14px;
+font-weight:700;
+}
 
-    .btn:hover{
-      transform:translateY(-1px);
-    }
+.btn-primary{
+background:linear-gradient(90deg,var(--accent),var(--accent2));
+color:#fff;
+}
 
-    .hero{
-      padding:76px 0 40px;
-      text-align:center;
-    }
+.hero{
+padding:90px 0 40px;
+text-align:center;
+}
 
-    .intro-pill{
-      display:inline-block;
-      padding:8px 14px;
-      border:1px solid rgba(70,196,255,0.22);
-      color:var(--accent);
-      border-radius:999px;
-      font-size:14px;
-      margin-bottom:22px;
-      background:rgba(255,255,255,0.02);
-    }
+.hero h1{
+font-size:60px;
+margin-bottom:10px;
+}
 
-    .hero h1{
-      font-size:64px;
-      line-height:1.05;
-      margin:0 0 16px;
-      letter-spacing:-1.8px;
-    }
+.hero h2{
+font-size:24px;
+margin-bottom:20px;
+}
 
-    .gradient-text{
-      background:linear-gradient(90deg, var(--accent), var(--accent2));
-      -webkit-background-clip:text;
-      -webkit-text-fill-color:transparent;
-      background-clip:text;
-      color:transparent;
-    }
+.hero p{
+font-size:20px;
+color:var(--muted);
+max-width:850px;
+margin:auto;
+}
 
-    .hero h2{
-      font-size:24px;
-      margin:0 0 18px;
-      color:#ffffff;
-      font-weight:700;
-    }
+.section{
+padding:70px 0;
+border-top:1px solid rgba(255,255,255,0.05);
+}
 
-    .hero p{
-      max-width:860px;
-      margin:0 auto 26px;
-      color:var(--muted);
-      font-size:21px;
-    }
+.section h2{
+text-align:center;
+font-size:40px;
+}
 
-    .hero-actions{
-      display:flex;
-      justify-content:center;
-      gap:16px;
-      flex-wrap:wrap;
-      margin-top:8px;
-    }
+.section-intro{
+max-width:850px;
+margin:auto;
+text-align:center;
+color:var(--muted);
+margin-bottom:40px;
+}
 
-    .section{
-      padding:72px 0;
-      border-top:1px solid rgba(255,255,255,0.05);
-    }
+.solutions-grid{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:30px;
+}
 
-    .section h2{
-      text-align:center;
-      font-size:42px;
-      margin:0 0 14px;
-    }
+.solution-card{
+background:#0f1a2d;
+border-radius:20px;
+padding:30px;
+border:1px solid rgba(255,255,255,0.08);
+}
 
-    .section-intro{
-      max-width:860px;
-      margin:0 auto 42px;
-      text-align:center;
-      color:var(--muted);
-      font-size:18px;
-    }
+.solution-card h3{
+font-size:24px;
+margin-bottom:10px;
+}
 
-    .solutions-grid{
-      display:grid;
-      grid-template-columns:repeat(2, minmax(0,1fr));
-      gap:30px;
-    }
+.solution-card p{
+color:var(--muted);
+}
 
-    .solution-card{
-      background:linear-gradient(180deg, rgba(17,28,48,0.96), rgba(11,19,33,0.96));
-      border:1px solid rgba(255,255,255,0.08);
-      border-radius:24px;
-      padding:34px 32px;
-      box-shadow:0 14px 34px rgba(0,0,0,0.20);
-      min-height:320px;
-    }
+.two-col{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:30px;
+}
 
-    .solution-icon{
-      width:64px;
-      height:64px;
-      border-radius:18px;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      font-size:30px;
-      margin-bottom:24px;
-    }
+.card{
+background:#0f1a2d;
+border-radius:20px;
+padding:30px;
+border:1px solid rgba(255,255,255,0.08);
+}
 
-    .icon-health{
-      background:rgba(70,196,255,0.10);
-      color:var(--accent);
-    }
+.card h3{
+margin-top:0;
+}
 
-    .icon-krai{
-      background:rgba(109,99,255,0.12);
-      color:var(--accent2);
-    }
+.bullets{
+padding-left:20px;
+}
 
-    .solution-card h3{
-      font-size:24px;
-      margin:0 0 14px;
-    }
+.krai-diagram{
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:20px;
+margin-top:40px;
+text-align:center;
+}
 
-    .solution-card p{
-      color:var(--muted);
-      font-size:16px;
-      margin:0 0 22px;
-    }
+.krai-center{
+grid-column:2;
+background:linear-gradient(135deg,#46c4ff,#6d63ff);
+padding:20px;
+border-radius:18px;
+font-weight:700;
+}
 
-    .solution-link{
-      font-weight:700;
-      color:var(--accent);
-    }
+.krai-box{
+background:#0f1a2d;
+border:1px solid rgba(255,255,255,0.08);
+padding:20px;
+border-radius:16px;
+}
 
-    .solution-link.krai{
-      color:var(--accent2);
-    }
+.pillars{
+display:grid;
+grid-template-columns:repeat(5,1fr);
+gap:18px;
+margin-top:40px;
+}
 
-    .two-col{
-      display:grid;
-      grid-template-columns:repeat(2, minmax(0,1fr));
-      gap:28px;
-    }
+.pillar{
+background:#0f1a2d;
+padding:20px;
+border-radius:14px;
+border:1px solid rgba(255,255,255,0.08);
+}
 
-    .card{
-      background:linear-gradient(180deg, rgba(17,28,48,0.94), rgba(11,19,33,0.94));
-      border:1px solid rgba(255,255,255,0.08);
-      border-radius:22px;
-      padding:28px;
-      box-shadow:0 12px 34px rgba(0,0,0,0.18);
-    }
+.vision{
+text-align:center;
+}
 
-    .card h3{
-      margin:0 0 14px;
-      font-size:24px;
-    }
+.quote{
+font-size:28px;
+font-weight:700;
+margin-top:20px;
+}
 
-    .card p{
-      margin:0 0 18px;
-      color:var(--muted);
-    }
+.contact{
+text-align:center;
+}
 
-    .bullets{
-      margin:0;
-      padding-left:20px;
-    }
+footer{
+padding:30px 0;
+text-align:center;
+color:var(--muted);
+border-top:1px solid rgba(255,255,255,0.05);
+}
 
-    .bullets li{
-      margin-bottom:10px;
-    }
+</style>
 
-    .pillars{
-      display:grid;
-      grid-template-columns:repeat(5, minmax(0,1fr));
-      gap:18px;
-      margin-top:28px;
-    }
-
-    .pillar{
-      background:linear-gradient(180deg, rgba(17,28,48,0.94), rgba(11,19,33,0.94));
-      border:1px solid rgba(255,255,255,0.08);
-      border-radius:18px;
-      padding:22px;
-      text-align:left;
-    }
-
-    .pillar strong{
-      display:block;
-      font-size:17px;
-      margin-bottom:10px;
-      color:#fff;
-    }
-
-    .pillar p{
-      margin:0;
-      color:var(--muted);
-      font-size:14px;
-    }
-
-    .vision{
-      text-align:center;
-    }
-
-    .quote{
-      max-width:900px;
-      margin:24px auto 0;
-      font-size:28px;
-      line-height:1.4;
-      font-weight:700;
-    }
-
-    .contact{
-      text-align:center;
-    }
-
-    .contact-links{
-      display:flex;
-      justify-content:center;
-      flex-wrap:wrap;
-      gap:18px;
-      margin-top:24px;
-    }
-
-    footer{
-      padding:24px 0 42px;
-      text-align:center;
-      color:var(--muted);
-      border-top:1px solid rgba(255,255,255,0.05);
-    }
-
-    @media (max-width: 1024px){
-      .solutions-grid,
-      .two-col{
-        grid-template-columns:1fr;
-      }
-
-      .pillars{
-        grid-template-columns:repeat(2, minmax(0,1fr));
-      }
-
-      .hero h1{
-        font-size:48px;
-      }
-
-      .hero p{
-        font-size:18px;
-      }
-    }
-
-    @media (max-width: 640px){
-      .nav-inner{
-        flex-direction:column;
-        align-items:flex-start;
-      }
-
-      .nav-links{
-        gap:16px;
-      }
-
-      .brand img{
-        height:54px;
-      }
-
-      .hero h1{
-        font-size:38px;
-      }
-
-      .hero h2{
-        font-size:20px;
-      }
-
-      .pillars{
-        grid-template-columns:1fr;
-      }
-    }
-  </style>
 </head>
+
 <body>
 
-  <nav class="navbar">
-    <div class="container nav-inner">
-      <div class="brand">
-        <img src="logo.jpg" alt="KalpaneAI logo">
-      </div>
+<nav class="navbar">
+<div class="container nav-inner">
+<div class="brand">
+<img src="logo.jpg">
+</div>
 
-      <div class="nav-links">
-        <a href="#solutions">Solutions</a>
-        <a href="#healthcare">Healthcare RAG</a>
-        <a href="#krai">KRAI Index</a>
-        <a href="#vision">Vision</a>
-        <a href="#contact" class="btn btn-primary">Contact Us</a>
-      </div>
-    </div>
-  </nav>
+<div class="nav-links">
+<a href="#solutions">Solutions</a>
+<a href="#healthcare">Healthcare</a>
+<a href="#krai">KRAI Index</a>
+<a href="#vision">Vision</a>
+<a href="#contact" class="btn btn-primary">Contact</a>
+</div>
+</div>
+</nav>
 
-  <section class="hero">
-    <div class="container">
-      <div class="intro-pill">Introducing KalpaneAI</div>
+<section class="hero">
+<div class="container">
 
-      <h1>
-        Two Powerful <span class="gradient-text">AI Solutions</span>
-      </h1>
+<h1>Two Powerful AI Solutions</h1>
 
-      <h2>Responsible AI &amp; Healthcare Knowledge Systems</h2>
+<h2>Responsible AI & Healthcare Knowledge Systems</h2>
 
-      <p>
-        KalpaneAI bridges trusted domain knowledge and Responsible AI governance through two distinct solution tracks: Healthcare RAG and the KRAI Index.
-      </p>
+<p>
+KalpaneAI bridges trusted domain knowledge and Responsible AI governance through two distinct solution tracks: Healthcare RAG and the KRAI Index.
+</p>
 
-      <div class="hero-actions">
-        <a href="#healthcare" class="btn btn-primary">Explore Healthcare AI</a>
-        <a href="#krai" class="btn btn-secondary">Discover KRAI Index</a>
-      </div>
-    </div>
-  </section>
+</div>
+</section>
 
-  <section class="section" id="solutions">
-    <div class="container">
-      <h2>Two Powerful Solutions</h2>
-      <p class="section-intro">
-        KalpaneAI bridges the gap between advanced AI capability and real-world application through two focused and complementary offerings.
-      </p>
+<section class="section" id="solutions">
+<div class="container">
 
-      <div class="solutions-grid">
-        <div class="solution-card">
-          <div class="solution-icon icon-health">♡</div>
-          <h3>Healthcare RAG</h3>
-          <p>
-            Domain-specialized Retrieval-Augmented Generation that pulls from trusted medical manuals and clinical references to reduce information overload and support faster, more informed healthcare decisions.
-          </p>
-          <a href="#healthcare" class="solution-link">Explore Solution →</a>
-        </div>
+<h2>Two Powerful Solutions</h2>
 
-        <div class="solution-card">
-          <div class="solution-icon icon-krai">⚖</div>
-          <h3>KRAI Index</h3>
-          <p>
-            The KalpaneAI Responsible AI Index evaluates market-ready LLMs against Dutch and EU standards across privacy, governance, robustness, bias, and human oversight.
-          </p>
-          <a href="#krai" class="solution-link krai">View Ratings →</a>
-        </div>
-      </div>
-    </div>
-  </section>
+<p class="section-intro">
+KalpaneAI bridges the gap between advanced AI capability and real-world application through two focused offerings.
+</p>
 
-  <section class="section" id="healthcare">
-    <div class="container">
-      <h2>Healthcare AI Knowledge Systems</h2>
-      <p class="section-intro">
-        KalpaneAI applies Retrieval-Augmented Generation to trusted medical manuals and research papers, converting authoritative references into clear, reliable, and instantly accessible answers.
-      </p>
+<div class="solutions-grid">
 
-      <div class="two-col">
-        <div class="card">
-          <h3>What We Solve</h3>
-          <p>
-            Healthcare professionals face information overload, fragmented access to knowledge, cognitive burden, and the risk of outdated references. KalpaneAI is designed to reduce that friction.
-          </p>
-          <ul class="bullets">
-            <li>Transforms trusted medical manuals into real-time, actionable insights</li>
-            <li>Improves access to clinical knowledge under time pressure</li>
-            <li>Supports safer and more informed healthcare decision-making</li>
-            <li>Expandable to local hospital and country-specific guidelines</li>
-          </ul>
-        </div>
+<div class="solution-card">
+<h3>Healthcare RAG</h3>
+<p>
+Domain-specialized Retrieval Augmented Generation that pulls from trusted medical manuals to support faster healthcare decisions.
+</p>
+</div>
 
-        <div class="card">
-          <h3>How It Works</h3>
-          <p>
-            The solution uses smart retrieval to pull relevant content from trusted sources and combines it with generative AI to produce concise, evidence-backed responses.
-          </p>
-          <ul class="bullets">
-            <li>Smart retrieval from trusted medical references such as the Merck Manual</li>
-            <li>AI-powered clarity grounded in authoritative sources</li>
-            <li>Can extend to NHS, Dutch, or hospital-specific guidelines</li>
-            <li>Designed for domain-focused healthcare knowledge workflows</li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </section>
+<div class="solution-card">
+<h3>KRAI Index</h3>
+<p>
+KalpaneAI Responsible AI Index evaluates AI models against EU AI Act and Dutch governance expectations.
+</p>
+</div>
 
-  <section class="section" id="krai">
-    <div class="container">
-      <h2>KRAI Index — Responsible AI Evaluation</h2>
-      <p class="section-intro">
-        KalpaneAI is building a practical Responsible AI evaluation framework to help organisations understand how AI systems align with Dutch and EU regulatory expectations.
-      </p>
+</div>
+</div>
+</section>
 
-      <div class="pillars">
-        <div class="pillar">
-          <strong>AI Solutions in the Market</strong>
-          <p>Foundation models, enterprise AI tools, open-weight ecosystems, vendor transparency, and deployment readiness.</p>
-        </div>
+<section class="section" id="healthcare">
+<div class="container">
 
-        <div class="pillar">
-          <strong>Data Privacy &amp; Governance</strong>
-          <p>GDPR principles, lawful processing, access control, traceability, and AP-aligned governance.</p>
-        </div>
+<h2>Healthcare AI Knowledge Systems</h2>
 
-        <div class="pillar">
-          <strong>Robustness &amp; Hallucination</strong>
-          <p>Reliability, validation layers, guardrails, fallback mechanisms, and control of plausible but incorrect outputs.</p>
-        </div>
+<p class="section-intro">
+KalpaneAI applies RAG to trusted medical manuals and research papers to convert authoritative references into actionable insights.
+</p>
 
-        <div class="pillar">
-          <strong>Bias &amp; Discrimination</strong>
-          <p>Fairness testing, transparency, non-discrimination, and mitigation of skewed or harmful outputs.</p>
-        </div>
+<div class="two-col">
 
-        <div class="pillar">
-          <strong>Human in the Loop</strong>
-          <p>Meaningful oversight, accountability, interpretability, escalation paths, and trusted decision support.</p>
-        </div>
-      </div>
-    </div>
-  </section>
+<div class="card">
+<h3>What We Solve</h3>
 
-  <section class="section vision" id="vision">
-    <div class="container">
-      <h2>Vision</h2>
-      <p class="section-intro">
-        KalpaneAI believes that the future of AI will be shaped not only by model capability, but by how responsibly those systems are governed, evaluated, and applied in real-world domains.
-      </p>
+<ul class="bullets">
+<li>Information overload for clinicians</li>
+<li>Fragmented access to knowledge sources</li>
+<li>Outdated reference material</li>
+<li>Time-critical decision environments</li>
+</ul>
 
-      <div class="quote">
-        “The challenge of Generative AI is no longer computation — it is responsibility.”
-      </div>
-    </div>
-  </section>
+</div>
 
-  <section class="section contact" id="contact">
-    <div class="container">
-      <h2>Contact</h2>
-      <p class="section-intro">
-        To discuss Responsible AI, healthcare knowledge systems, or collaboration opportunities:
-      </p>
+<div class="card">
+<h3>How It Works</h3>
 
-      <div class="contact-links">
-        <a href="mailto:vishwavasu@kalpaneai.com" class="btn btn-primary">Email KalpaneAI</a>
-        <a href="https://www.linkedin.com" target="_blank" class="btn btn-secondary">LinkedIn</a>
-      </div>
-    </div>
-  </section>
+<ul class="bullets">
+<li>Retrieval from trusted medical manuals</li>
+<li>AI-generated evidence-backed responses</li>
+<li>Expandable to hospital guidelines</li>
+<li>Scalable knowledge integration</li>
+</ul>
 
-  <footer>
-    KalpaneAI © 2026
-  </footer>
+</div>
+
+</div>
+</div>
+</section>
+
+<section class="section" id="krai">
+<div class="container">
+
+<h2>KRAI Index — Responsible AI Evaluation</h2>
+
+<p class="section-intro">
+KalpaneAI evaluates AI systems against Dutch and EU regulatory expectations.
+</p>
+
+<div class="krai-diagram">
+
+<div class="krai-box">
+<strong>Data Privacy & Governance</strong>
+<p>GDPR compliance and lawful processing.</p>
+</div>
+
+<div class="krai-center">
+KRAI Index<br>
+Responsible AI Evaluation
+</div>
+
+<div class="krai-box">
+<strong>Robustness & Hallucination</strong>
+<p>Reliability and hallucination mitigation.</p>
+</div>
+
+<div class="krai-box">
+<strong>AI Solutions in Market</strong>
+<p>Foundation models and enterprise AI.</p>
+</div>
+
+<div class="krai-box">
+<strong>Human in the Loop</strong>
+<p>Human oversight and accountability.</p>
+</div>
+
+<div class="krai-box">
+<strong>Bias & Discrimination</strong>
+<p>Fairness and bias monitoring.</p>
+</div>
+
+</div>
+
+<div class="pillars">
+
+<div class="pillar">AI Solutions in Market</div>
+<div class="pillar">Privacy & Governance</div>
+<div class="pillar">Robustness</div>
+<div class="pillar">Bias & Fairness</div>
+<div class="pillar">Human Oversight</div>
+
+</div>
+
+</div>
+</section>
+
+<section class="section vision" id="vision">
+<div class="container">
+
+<h2>Vision</h2>
+
+<p class="section-intro">
+KalpaneAI believes the future of AI will be defined not only by model capability but by responsible governance.
+</p>
+
+<div class="quote">
+“The challenge of Generative AI is no longer computation — it is responsibility.”
+</div>
+
+</div>
+</section>
+
+<section class="section contact" id="contact">
+<div class="container">
+
+<h2>Contact</h2>
+
+<p class="section-intro">
+For collaboration or discussions on Responsible AI and Healthcare AI.
+</p>
+
+<a href="mailto:vishwavasu@kalpaneai.com" class="btn btn-primary">Email KalpaneAI</a>
+
+</div>
+</section>
+
+<footer>
+KalpaneAI © 2026
+</footer>
 
 </body>
 </html>
