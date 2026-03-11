@@ -1,115 +1,304 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>KalpaneAI</title>
+  <style>
+    :root{
+      --bg:#08111f;
+      --bg2:#0d1728;
+      --card:#111c30;
+      --text:#f3f4f6;
+      --muted:#b6c2d1;
+      --accent:#e25b5b;
+      --line:#22314d;
+    }
 
-<title>KalpaneAI</title>
+    *{
+      box-sizing:border-box;
+    }
 
-<style>
+    body{
+      margin:0;
+      font-family: Arial, Helvetica, sans-serif;
+      background: linear-gradient(180deg, var(--bg), var(--bg2));
+      color:var(--text);
+      line-height:1.6;
+    }
 
-body{
-margin:0;
-font-family:Arial;
-background:#0f172a;
-color:white;
-text-align:center;
-}
+    .container{
+      width:min(1120px, 92%);
+      margin:0 auto;
+    }
 
-.hero{
-padding:120px 20px;
-}
+    .hero{
+      padding:56px 0 72px;
+      text-align:center;
+      border-bottom:1px solid var(--line);
+    }
 
-h1{
-font-size:48px;
-margin-bottom:20px;
-}
+    .hero-logo{
+      max-width:420px;
+      width:100%;
+      height:auto;
+      margin:0 auto 24px;
+      display:block;
+      border-radius:6px;
+    }
 
-.tagline{
-font-size:22px;
-color:#94a3b8;
-}
+    .hero h1{
+      margin:0 0 14px;
+      font-size:48px;
+      letter-spacing:0.2px;
+    }
 
-.section{
-padding:60px 20px;
-background:#111827;
-}
+    .hero p{
+      margin:0 auto;
+      max-width:860px;
+      color:var(--muted);
+      font-size:21px;
+    }
 
-.section2{
-padding:60px 20px;
-background:#020617;
-}
+    .tagline{
+      margin-top:18px;
+      font-size:20px;
+      color:#ffffff;
+      font-weight:700;
+    }
 
-.container{
-max-width:900px;
-margin:auto;
-}
+    .section{
+      padding:70px 0;
+    }
 
-.footer{
-padding:20px;
-font-size:14px;
-background:#020617;
-color:#9ca3af;
-}
+    .section h2{
+      text-align:center;
+      font-size:34px;
+      margin:0 0 16px;
+    }
 
-</style>
+    .section-intro{
+      max-width:860px;
+      margin:0 auto 36px;
+      text-align:center;
+      color:var(--muted);
+      font-size:18px;
+    }
 
+    .grid{
+      display:grid;
+      grid-template-columns:repeat(2, minmax(0, 1fr));
+      gap:28px;
+    }
+
+    .card{
+      background:rgba(17, 28, 48, 0.92);
+      border:1px solid var(--line);
+      border-radius:18px;
+      padding:28px;
+      box-shadow:0 8px 30px rgba(0,0,0,0.18);
+    }
+
+    .card h3{
+      margin:0 0 14px;
+      font-size:24px;
+    }
+
+    .card p{
+      margin:0 0 18px;
+      color:var(--muted);
+      font-size:16px;
+    }
+
+    .bullets{
+      margin:0;
+      padding-left:18px;
+      color:var(--text);
+    }
+
+    .bullets li{
+      margin-bottom:10px;
+    }
+
+    .pillars{
+      display:grid;
+      grid-template-columns:repeat(4, minmax(0, 1fr));
+      gap:18px;
+      margin-top:28px;
+    }
+
+    .pillar{
+      background:rgba(17, 28, 48, 0.92);
+      border:1px solid var(--line);
+      border-radius:16px;
+      padding:20px;
+      text-align:center;
+      color:var(--muted);
+    }
+
+    .pillar strong{
+      display:block;
+      color:#fff;
+      margin-bottom:8px;
+      font-size:16px;
+    }
+
+    .contact{
+      text-align:center;
+    }
+
+    .contact a{
+      color:#ffffff;
+      text-decoration:none;
+    }
+
+    .contact a:hover{
+      text-decoration:underline;
+    }
+
+    footer{
+      border-top:1px solid var(--line);
+      padding:24px 0 40px;
+      text-align:center;
+      color:var(--muted);
+      font-size:14px;
+    }
+
+    @media (max-width: 900px){
+      .grid{
+        grid-template-columns:1fr;
+      }
+
+      .pillars{
+        grid-template-columns:repeat(2, minmax(0, 1fr));
+      }
+
+      .hero h1{
+        font-size:38px;
+      }
+
+      .hero p{
+        font-size:18px;
+      }
+    }
+
+    @media (max-width: 560px){
+      .pillars{
+        grid-template-columns:1fr;
+      }
+
+      .hero{
+        padding-top:36px;
+      }
+
+      .hero h1{
+        font-size:32px;
+      }
+    }
+  </style>
 </head>
-
 <body>
 
-<div class="hero">
+  <section class="hero">
+    <div class="container">
+      <img src="logo.jpg" alt="KalpaneAI logo" class="hero-logo">
+      <h1>KalpaneAI</h1>
+      <p>
+        AI solutions across two strategic domains: <strong>Healthcare Knowledge Systems</strong> and
+        <strong>Responsible AI Governance</strong>.
+      </p>
+      <div class="tagline">
+        Responsible AI — Ensuring Dutch &amp; EU Standards Compliance
+      </div>
+    </div>
+  </section>
 
-<h1>KalpaneAI</h1>
+  <section class="section">
+    <div class="container">
+      <h2>What We Build</h2>
+      <p class="section-intro">
+        KalpaneAI is evolving across two complementary tracks: applying AI to trusted healthcare knowledge,
+        and helping organisations evaluate and govern generative AI systems in line with Dutch and EU expectations.
+      </p>
 
-<p class="tagline">
-Responsible AI — Ensuring Dutch & EU Standards Compliance
-</p>
+      <div class="grid">
+        <div class="card">
+          <h3>Healthcare AI Knowledge Systems</h3>
+          <p>
+            KalpaneAI applies Retrieval-Augmented Generation (RAG) to trusted medical manuals and research papers,
+            transforming authoritative references into clear, reliable, and instantly accessible answers for healthcare professionals.
+          </p>
+          <ul class="bullets">
+            <li>Trusted medical knowledge transformed into actionable insights</li>
+            <li>Smart retrieval from sources such as the Merck Manual</li>
+            <li>AI-powered clarity with concise, evidence-backed responses</li>
+            <li>Scalable from one medical manual to multiple sources and local guidelines</li>
+          </ul>
+        </div>
 
-</div>
+        <div class="card">
+          <h3>Responsible AI Governance</h3>
+          <p>
+            KalpaneAI develops evaluation approaches for market-ready LLMs, helping organisations understand how models align with the EU AI Act, GDPR, Dutch regulatory expectations, and AP guidance.
+          </p>
+          <ul class="bullets">
+            <li>Evaluation of market AI solutions and open-weight models</li>
+            <li>Privacy, governance, and data protection alignment</li>
+            <li>Robustness, hallucination control, and reliability assessment</li>
+            <li>Bias, transparency, and human-in-the-loop oversight</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
 
-<div class="section">
+  <section class="section">
+    <div class="container">
+      <h2>Responsible AI Evaluation Themes</h2>
+      <p class="section-intro">
+        Our Responsible AI work is shaped around practical dimensions that matter for enterprise deployment,
+        regulatory readiness, and trust in Generative AI systems.
+      </p>
 
-<div class="container">
+      <div class="pillars">
+        <div class="pillar">
+          <strong>Market AI Solutions</strong>
+          Foundation models, open weights, rapid deployment, enterprise adoption
+        </div>
+        <div class="pillar">
+          <strong>Privacy &amp; Governance</strong>
+          GDPR principles, access control, data compliance, traceability
+        </div>
+        <div class="pillar">
+          <strong>Robustness</strong>
+          Validation layers, guardrails, reliability, fallback mechanisms
+        </div>
+        <div class="pillar">
+          <strong>Fairness &amp; Oversight</strong>
+          Bias testing, non-discrimination, transparency, human-in-the-loop
+        </div>
+      </div>
+    </div>
+  </section>
 
-<h2>Responsible AI Governance</h2>
+  <section class="section contact">
+    <div class="container">
+      <h2>Contact</h2>
+      <p class="section-intro">
+        To discuss healthcare AI, Responsible AI evaluation, or collaboration opportunities:
+      </p>
+      <p>
+        <a href="mailto:vishwavasu@kalpaneai.com">vishwavasu@kalpaneai.com</a>
+      </p>
+      <p>
+        <a href="https://www.linkedin.com" target="_blank">LinkedIn</a>
+      </p>
+    </div>
+  </section>
 
-<p>
-
-As AI systems move from prediction to generation, responsibility becomes harder to locate.  
-KalpaneAI focuses on helping organizations deploy AI systems responsibly while aligning with the EU Artificial Intelligence Act and regulatory guidance from the Autoriteit Persoonsgegevens (AP).
-
-</p>
-
-</div>
-
-</div>
-
-<div class="section2">
-
-<div class="container">
-
-<h2>Focus Areas</h2>
-
-<p>
-
-Responsible AI Governance  
-<br><br>
-EU AI Act Compliance  
-<br><br>
-AI Risk & Bias Monitoring  
-<br><br>
-Human-in-the-Loop AI Systems
-
-</p>
-
-</div>
-
-</div>
-
-<div class="footer">
-
-KalpaneAI © 2026
-
-</div>
+  <footer>
+    KalpaneAI © 2026
+  </footer>
 
 </body>
 </html>
