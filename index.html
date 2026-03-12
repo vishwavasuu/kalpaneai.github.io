@@ -248,12 +248,27 @@ font-size:24px;
 
 /* ---------- END OF NEW BLOCK ---------- */
 
-/* --------Making the block interactive ------*/
+.krai-visual-card{
+margin:42px auto 34px;
+background:linear-gradient(180deg, rgba(17,28,48,0.96), rgba(11,19,33,0.96));
+border:1px solid rgba(255,255,255,0.08);
+border-radius:24px;
+padding:18px;
+box-shadow:0 14px 34px rgba(0,0,0,0.20);
+}
+
+.krai-visual-img{
+width:100%;
+height:auto;
+display:block;
+border-radius:16px;
+}
+
 .krai-rating-grid{
 display:grid;
 grid-template-columns:repeat(5, 1fr);
 gap:18px;
-margin:28px 0 38px;
+margin:28px 0 34px;
 }
 
 .krai-rating-card{
@@ -264,16 +279,25 @@ padding:22px 18px;
 text-align:center;
 transition:transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
 box-shadow:0 10px 24px rgba(0,0,0,0.16);
-min-height:180px;
+min-height:190px;
 display:flex;
 flex-direction:column;
 justify-content:center;
+color:#fff;
+cursor:pointer;
+font-family:Arial, Helvetica, sans-serif;
 }
 
 .krai-rating-card:hover{
 transform:translateY(-6px);
 box-shadow:0 18px 34px rgba(0,0,0,0.28);
 border-color:rgba(255,255,255,0.18);
+}
+
+.krai-rating-card.active{
+transform:translateY(-6px);
+box-shadow:0 18px 34px rgba(0,0,0,0.30);
+border-color:#46c4ff;
 }
 
 .krai-rating-label{
@@ -317,9 +341,114 @@ font-size:14px;
 color:var(--muted);
 }
 
+.krai-model-panel{
+margin:8px 0 34px;
+background:linear-gradient(180deg, rgba(17,28,48,0.96), rgba(11,19,33,0.96));
+border:1px solid rgba(255,255,255,0.08);
+border-radius:24px;
+padding:28px;
+box-shadow:0 14px 34px rgba(0,0,0,0.20);
+}
+
+.krai-model-header{
+display:flex;
+justify-content:space-between;
+align-items:flex-start;
+gap:18px;
+margin-bottom:22px;
+flex-wrap:wrap;
+}
+
+.krai-model-header h3{
+margin:0 0 6px;
+font-size:28px;
+}
+
+.krai-model-header p{
+margin:0;
+color:var(--muted);
+}
+.krai-disclaimer{
+font-size:12px;
+color:#9fb0c7;
+margin-top:8px;
+opacity:0.8;
+}
+.krai-score-pill{
+padding:10px 16px;
+border-radius:999px;
+background:linear-gradient(90deg, #46c4ff, #6d63ff);
+font-weight:700;
+color:#fff;
+white-space:nowrap;
+}
+
+.krai-model-grid{
+display:grid;
+grid-template-columns:repeat(4, 1fr);
+gap:18px;
+}
+
+.krai-model-card{
+background:#0f1a2d;
+border:1px solid rgba(255,255,255,0.08);
+border-radius:18px;
+padding:20px;
+box-shadow:0 10px 24px rgba(0,0,0,0.16);
+}
+
+.krai-model-card h4{
+margin:0 0 10px;
+font-size:20px;
+}
+
+.model-score{
+display:inline-block;
+padding:8px 12px;
+border-radius:10px;
+background:rgba(70,196,255,0.12);
+color:#46c4ff;
+font-weight:700;
+margin-bottom:12px;
+}
+
+.krai-model-card p{
+margin:0;
+color:var(--muted);
+font-size:14px;
+}
+
+.krai-summary-grid{
+display:grid;
+grid-template-columns:repeat(2, minmax(0,1fr));
+gap:28px;
+margin:10px 0 34px;
+}
+
+.krai-summary-card{
+background:linear-gradient(180deg, rgba(17,28,48,0.94), rgba(11,19,33,0.94));
+border:1px solid rgba(255,255,255,0.08);
+border-radius:22px;
+padding:28px;
+box-shadow:0 12px 34px rgba(0,0,0,0.18);
+}
+
+.krai-summary-card h3{
+margin:0 0 14px;
+font-size:24px;
+}
+
 @media (max-width: 1024px){
 .krai-rating-grid{
 grid-template-columns:repeat(2, 1fr);
+}
+
+.krai-model-grid{
+grid-template-columns:repeat(2, 1fr);
+}
+
+.krai-summary-grid{
+grid-template-columns:1fr;
 }
 }
 
@@ -327,8 +456,11 @@ grid-template-columns:repeat(2, 1fr);
 .krai-rating-grid{
 grid-template-columns:1fr;
 }
+
+.krai-model-grid{
+grid-template-columns:1fr;
 }
-/*------------Interactive block end -----------*/
+}
 .vision{
 text-align:center;
 }
@@ -461,46 +593,86 @@ KalpaneAI applies RAG to trusted medical manuals and research papers to convert 
     <h2>KRAI Index — Responsible AI Evaluation</h2>
 
     <p class="section-intro">
-      The KalpaneAI Responsible AI Index (KRAI) evaluates large language models against Dutch and EU regulatory expectations across legal compliance, privacy, reliability, fairness, and transparency.
+      The KalpaneAI Responsible AI Index (KRAI) evaluates large language models against Dutch and EU expectations across legal compliance, privacy, robustness, fairness, transparency, and human oversight.
     </p>
 
     <div class="krai-visual-card">
       <img src="krai-framework.png" alt="KalpaneAI Responsible AI Index framework" class="krai-visual-img">
     </div>
-    <!-- ADD THIS BLOCK BELOW -->
+
     <div class="krai-rating-grid">
 
-      <div class="krai-rating-card krai-leader">
+      <button class="krai-rating-card krai-leader active" onclick="showKraiTier('leader')">
         <div class="krai-rating-label">Leader</div>
         <h4>Trusted Benchmark</h4>
         <p>Strong alignment across compliance, privacy, robustness, fairness, and transparency dimensions.</p>
-      </div>
+      </button>
 
-      <div class="krai-rating-card krai-compliant">
+      <button class="krai-rating-card krai-compliant" onclick="showKraiTier('compliant')">
         <div class="krai-rating-label">Compliant</div>
         <h4>Deployment Ready</h4>
         <p>Meets key Responsible AI expectations with manageable limitations and acceptable governance posture.</p>
-      </div>
+      </button>
 
-      <div class="krai-rating-card krai-moderate">
+      <button class="krai-rating-card krai-moderate" onclick="showKraiTier('moderate')">
         <div class="krai-rating-label">Moderate</div>
         <h4>Use With Caution</h4>
         <p>Suitable for limited use cases but requires stronger controls, monitoring, and human oversight.</p>
-      </div>
+      </button>
 
-      <div class="krai-rating-card krai-high">
+      <button class="krai-rating-card krai-high" onclick="showKraiTier('high')">
         <div class="krai-rating-label">High Risk</div>
         <h4>Significant Concerns</h4>
         <p>Material issues across one or more evaluation dimensions that may affect safe enterprise adoption.</p>
-      </div>
+      </button>
 
-      <div class="krai-rating-card krai-critical">
+      <button class="krai-rating-card krai-critical" onclick="showKraiTier('critical')">
         <div class="krai-rating-label">Critical Risk</div>
-        <h4>Deployment Risk</h4>
-        <p>Compliance, Reliability, OR Governance gaps that create unacceptable risk under EU or AP provided guidelines</p>
-      </div>
+        <h4>Not Fit for Deployment</h4>
+        <p>Serious compliance, reliability, or governance gaps that create unacceptable risk under EU or Dutch expectations.</p>
+      </button>
 
     </div>
+
+    <div class="krai-model-panel">
+      <div class="krai-model-header">
+        <div>
+          <h3 id="kraiTierTitle">Leader Tier</h3>
+          <p id="kraiTierSubtitle">Illustrative examples of models that may score strongly on KRAI dimensions.</p>
+            <p class="krai-disclaimer">*Ratings shown below are illustrative examples for demonstration purposes only and do not represent official or validated benchmark results.</p>
+        </div>
+        <div class="krai-score-pill" id="kraiTierScore">Score Range: 8.0+</div>
+      </div>
+
+      <div class="krai-model-grid" id="kraiModelGrid">
+
+        <div class="krai-model-card">
+          <h4>Apertus-8B</h4>
+          <div class="model-score">8.2</div>
+          <p>Strong Responsible AI posture across legal, privacy, and transparency dimensions.</p>
+        </div>
+
+        <div class="krai-model-card">
+          <h4>TildeOpen</h4>
+          <div class="model-score">7.8</div>
+          <p>Good alignment with governance expectations, with relatively balanced model behaviour.</p>
+        </div>
+
+        <div class="krai-model-card">
+          <h4>Llama-3</h4>
+          <div class="model-score">7.3</div>
+          <p>Competitive capability, though deployment posture depends heavily on controls and use context.</p>
+        </div>
+
+        <div class="krai-model-card">
+          <h4>Mistral</h4>
+          <div class="model-score">6.9</div>
+          <p>Promising enterprise use, but requires structured governance and closer evaluation per deployment.</p>
+        </div>
+
+      </div>
+    </div>
+
     <div class="krai-summary-grid">
 
       <div class="krai-summary-card">
@@ -558,7 +730,6 @@ KalpaneAI applies RAG to trusted medical manuals and research papers to convert 
 
   </div>
 </section>
-
 <section class="section vision" id="vision">
 <div class="container">
 
@@ -592,6 +763,94 @@ For collaboration or discussions on Responsible AI and Healthcare AI.
 <footer>
 KalpaneAI © 2026
 </footer>
+/*--------------Placed this <Javascript-----------------></Javascript-----------------><script>
+function showKraiTier(tier){
+  const cards = document.querySelectorAll('.krai-rating-card');
+  cards.forEach(card => card.classList.remove('active'));
 
+  const tierMap = {
+    leader: {
+      title: 'Leader Tier',
+      subtitle: 'Illustrative examples of models that may score strongly on KRAI dimensions.',
+      score: 'Score Range: 8.0+',
+      models: [
+        {name:'Apertus-8B', score:'8.2', text:'Strong Responsible AI posture across legal, privacy, and transparency dimensions.'},
+        {name:'TildeOpen', score:'7.8', text:'Good alignment with governance expectations, with relatively balanced model behaviour.'},
+        {name:'Llama-3', score:'7.3', text:'Competitive capability, though deployment posture depends heavily on controls and use context.'},
+        {name:'Mistral', score:'6.9', text:'Promising enterprise use, but requires structured governance and closer evaluation per deployment.'}
+      ]
+    },
+    compliant: {
+      title: 'Compliant Tier',
+      subtitle: 'Models that are broadly usable with structured controls and acceptable governance posture.',
+      score: 'Score Range: 7.0 – 7.9',
+      models: [
+        {name:'Model A', score:'7.8', text:'Good compliance fit with manageable transparency and privacy limitations.'},
+        {name:'Model B', score:'7.5', text:'Operationally viable with documented controls and clear usage boundaries.'},
+        {name:'Model C', score:'7.3', text:'Solid governance posture but requires stronger human oversight in critical workflows.'},
+        {name:'Model D', score:'7.1', text:'Reasonably deployable with moderate risk monitoring and audit discipline.'}
+      ]
+    },
+    moderate: {
+      title: 'Moderate Tier',
+      subtitle: 'Models suitable for bounded use cases, but requiring higher caution and stronger safeguards.',
+      score: 'Score Range: 6.0 – 6.9',
+      models: [
+        {name:'Model E', score:'6.8', text:'Useful in low-risk workflows, but not ideal without additional governance layers.'},
+        {name:'Model F', score:'6.6', text:'Adequate in capability, though hallucination control and transparency remain concerns.'},
+        {name:'Model G', score:'6.4', text:'Needs tighter privacy review and stronger documentation for enterprise deployment.'},
+        {name:'Model H', score:'6.1', text:'Appropriate only with careful human-in-the-loop safeguards.'}
+      ]
+    },
+    high: {
+      title: 'High Risk Tier',
+      subtitle: 'Models with significant deployment concerns across one or more Responsible AI dimensions.',
+      score: 'Score Range: 4.5 – 5.9',
+      models: [
+        {name:'Model I', score:'5.7', text:'High hallucination exposure and weak explainability for regulated environments.'},
+        {name:'Model J', score:'5.4', text:'Material bias and transparency issues limit safe deployment.'},
+        {name:'Model K', score:'5.1', text:'Governance posture is weak for enterprise adoption under EU expectations.'},
+        {name:'Model L', score:'4.8', text:'Suitable only for experimentation, not for production-sensitive use cases.'}
+      ]
+    },
+    critical: {
+      title: 'Critical Risk Tier',
+      subtitle: 'Models with unacceptable governance, reliability, or compliance posture for real-world deployment.',
+      score: 'Score Range: Below 4.5',
+      models: [
+        {name:'Model M', score:'4.2', text:'Severe reliability and compliance weaknesses create unacceptable deployment risk.'},
+        {name:'Model N', score:'3.9', text:'Insufficient transparency and data governance for regulated use.'},
+        {name:'Model O', score:'3.6', text:'High probability of unsafe or misleading outputs in operational settings.'},
+        {name:'Model P', score:'3.1', text:'Not fit for deployment under Dutch and EU Responsible AI expectations.'}
+      ]
+    }
+  };
+
+  const selected = tierMap[tier];
+
+  document.getElementById('kraiTierTitle').innerText = selected.title;
+  document.getElementById('kraiTierSubtitle').innerText = selected.subtitle;
+  document.getElementById('kraiTierScore').innerText = selected.score;
+
+  const grid = document.getElementById('kraiModelGrid');
+  grid.innerHTML = '';
+
+  selected.models.forEach(model => {
+    const card = document.createElement('div');
+    card.className = 'krai-model-card';
+    card.innerHTML = `
+      <h4>${model.name}</h4>
+      <div class="model-score">${model.score}</div>
+      <p>${model.text}</p>
+    `;
+    grid.appendChild(card);
+  });
+
+  const clicked = document.querySelector('.krai-' + tier);
+  if(clicked){
+    clicked.classList.add('active');
+  }
+}
+</script>
 </body>
 </html>
