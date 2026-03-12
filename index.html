@@ -208,7 +208,45 @@ padding:20px;
 border-radius:14px;
 border:1px solid rgba(255,255,255,0.08);
 }
+/* ---------- ADDED THE KRAI diagram in the following sections ---------- */
 
+.krai-visual-card{
+margin:42px auto 34px;
+background:linear-gradient(180deg, rgba(17,28,48,0.96), rgba(11,19,33,0.96));
+border:1px solid rgba(255,255,255,0.08);
+border-radius:24px;
+padding:18px;
+box-shadow:0 14px 34px rgba(0,0,0,0.20);
+}
+
+.krai-visual-img{
+width:100%;
+height:auto;
+display:block;
+border-radius:16px;
+}
+
+.krai-summary-grid{
+display:grid;
+grid-template-columns:repeat(2, minmax(0,1fr));
+gap:28px;
+margin:10px 0 34px;
+}
+
+.krai-summary-card{
+background:linear-gradient(180deg, rgba(17,28,48,0.94), rgba(11,19,33,0.94));
+border:1px solid rgba(255,255,255,0.08);
+border-radius:22px;
+padding:28px;
+box-shadow:0 12px 34px rgba(0,0,0,0.18);
+}
+
+.krai-summary-card h3{
+margin:0 0 14px;
+font-size:24px;
+}
+
+/* ---------- END OF NEW BLOCK ---------- */
 .vision{
 text-align:center;
 }
@@ -335,59 +373,75 @@ KalpaneAI applies RAG to trusted medical manuals and research papers to convert 
 </section>
 
 <section class="section" id="krai">
-<div class="container">
+<section class="section" id="krai">
+  <div class="container">
 
-<h2>KRAI Index — Responsible AI Evaluation</h2>
+    <h2>KRAI Index — Responsible AI Evaluation</h2>
 
-<p class="section-intro">
-KalpaneAI evaluates AI systems against Dutch and EU regulatory expectations.
-</p>
+    <p class="section-intro">
+      The KalpaneAI Responsible AI Index (KRAI) evaluates large language models against Dutch and EU regulatory expectations across legal compliance, privacy, reliability, fairness, and transparency.
+    </p>
 
-<div class="krai-diagram">
+    <div class="krai-visual-card">
+      <img src="krai-framework.png" alt="KalpaneAI Responsible AI Index framework" class="krai-visual-img">
+    </div>
 
-<div class="krai-box">
-<strong>Data Privacy & Governance</strong>
-<p>GDPR compliance and lawful processing.</p>
-</div>
+    <div class="krai-summary-grid">
 
-<div class="krai-center">
-KRAI Index<br>
-Responsible AI Evaluation
-</div>
+      <div class="krai-summary-card">
+        <h3>What KRAI Measures</h3>
+        <ul class="bullets">
+          <li>Legal compliance with EU AI Act and AP guidance</li>
+          <li>Privacy and data protection alignment with GDPR</li>
+          <li>Accuracy, reliability, and hallucination control</li>
+          <li>Bias, non-discrimination, and fairness testing</li>
+          <li>Transparency, disclosure, and AI system limitations</li>
+        </ul>
+      </div>
 
-<div class="krai-box">
-<strong>Robustness & Hallucination</strong>
-<p>Reliability and hallucination mitigation.</p>
-</div>
+      <div class="krai-summary-card">
+        <h3>Why It Matters</h3>
+        <ul class="bullets">
+          <li>Helps organisations compare LLMs beyond raw capability</li>
+          <li>Supports safer AI adoption under Dutch and EU standards</li>
+          <li>Creates a practical governance view for deployment decisions</li>
+          <li>Links technical evaluation with regulatory accountability</li>
+          <li>Enables clearer Responsible AI positioning for enterprise use</li>
+        </ul>
+      </div>
 
-<div class="krai-box">
-<strong>AI Solutions in Market</strong>
-<p>Foundation models and enterprise AI.</p>
-</div>
+    </div>
 
-<div class="krai-box">
-<strong>Human in the Loop</strong>
-<p>Human oversight and accountability.</p>
-</div>
+    <div class="pillars">
 
-<div class="krai-box">
-<strong>Bias & Discrimination</strong>
-<p>Fairness and bias monitoring.</p>
-</div>
+      <div class="pillar">
+        <strong>AI Solutions in Market</strong>
+        <p>Foundation models, enterprise AI tools, open-weight ecosystems, vendor transparency, and deployment readiness.</p>
+      </div>
 
-</div>
+      <div class="pillar">
+        <strong>Data Privacy &amp; Governance</strong>
+        <p>GDPR principles, lawful processing, access control, traceability, and AP-aligned governance.</p>
+      </div>
 
-<div class="pillars">
+      <div class="pillar">
+        <strong>Robustness &amp; Hallucination</strong>
+        <p>Reliability, validation layers, guardrails, fallback mechanisms, and control of plausible but incorrect outputs.</p>
+      </div>
 
-<div class="pillar">AI Solutions in Market</div>
-<div class="pillar">Privacy & Governance</div>
-<div class="pillar">Robustness</div>
-<div class="pillar">Bias & Fairness</div>
-<div class="pillar">Human Oversight</div>
+      <div class="pillar">
+        <strong>Bias &amp; Discrimination</strong>
+        <p>Fairness testing, transparency, non-discrimination, and mitigation of skewed or harmful outputs.</p>
+      </div>
 
-</div>
+      <div class="pillar">
+        <strong>Human in the Loop</strong>
+        <p>Meaningful oversight, accountability, interpretability, escalation paths, and trusted decision support.</p>
+      </div>
 
-</div>
+    </div>
+
+  </div>
 </section>
 
 <section class="section vision" id="vision">
