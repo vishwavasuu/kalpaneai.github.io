@@ -1,0 +1,80 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>KalpaneAI | Healthcare AI Knowledge Systems</title><meta name="description" content="Healthcare RAG by KalpaneAI transforms trusted medical manuals and hospital knowledge into accessible, grounded answers."><style>
+:root{
+--bg:#040b16;
+--bg2:#08111f;
+--card:#0f1a2d;
+--text:#f3f4f6;
+--muted:#aeb9cb;
+--line:#22314d;
+--accent:#46c4ff;
+--accent2:#6d63ff;
+}
+*{box-sizing:border-box;scroll-behavior:smooth;}
+body{margin:0;font-family:Arial, Helvetica, sans-serif;color:var(--text);background:
+radial-gradient(circle at top left, rgba(70,196,255,0.10), transparent 28%),
+radial-gradient(circle at top right, rgba(109,99,255,0.10), transparent 28%),
+linear-gradient(180deg, var(--bg), var(--bg2));line-height:1.6;}
+.container{width:min(1180px, 92%);margin:auto;}
+a{color:inherit;text-decoration:none;}
+.navbar{position:sticky;top:0;background:rgba(4,11,22,0.80);border-bottom:1px solid rgba(255,255,255,0.06);z-index:20;backdrop-filter: blur(8px);}
+.nav-inner{display:flex;align-items:center;justify-content:space-between;padding:16px 0;gap:20px;}
+.brand img{height:82px;width:auto;display:block;}
+.nav-links{display:flex;gap:28px;align-items:center;flex-wrap:wrap;}
+.nav-links a{color:var(--muted);font-size:15px;}
+.nav-links a:hover{color:#fff;}
+.btn{display:inline-block;padding:14px 24px;border-radius:14px;font-weight:700;}
+.btn-primary{background:linear-gradient(90deg,var(--accent),var(--accent2));color:#fff;box-shadow:0 12px 28px rgba(70,196,255,0.18);}
+.btn-secondary{background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.10);color:#fff;}
+.hero{padding:90px 0 40px;text-align:center;}
+.hero h1{font-size:60px;margin-bottom:10px;}
+.hero h2{font-size:24px;margin-bottom:20px;}
+.hero p{font-size:20px;color:var(--muted);max-width:850px;margin:auto;}
+.hero-actions{display:flex;justify-content:center;gap:16px;flex-wrap:wrap;margin-top:28px;}
+.section{padding:70px 0;border-top:1px solid rgba(255,255,255,0.05);}
+.section h2{text-align:center;font-size:40px;}
+.section-intro{max-width:850px;margin:auto;text-align:center;color:var(--muted);margin-bottom:40px;}
+.solutions-grid{display:grid;grid-template-columns:1fr 1fr;gap:30px;}
+.solution-card,.card,.pillar,.krai-box,.cta-card{background:#0f1a2d;border-radius:20px;padding:30px;border:1px solid rgba(255,255,255,0.08);box-shadow:0 10px 24px rgba(0,0,0,0.16);}
+.solution-card h3{font-size:24px;margin-bottom:10px;}
+.solution-card p,.card p,.pillar p{color:var(--muted);}
+.solution-actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:18px;}
+.two-col{display:grid;grid-template-columns:1fr 1fr;gap:30px;}
+.card h3{margin-top:0;}
+.bullets{padding-left:20px;}
+.pillars{display:grid;grid-template-columns:repeat(5,1fr);gap:18px;margin-top:40px;}
+.krai-visual-card{margin:42px auto 34px;background:linear-gradient(180deg, rgba(17,28,48,0.96), rgba(11,19,33,0.96));border:1px solid rgba(255,255,255,0.08);border-radius:24px;padding:18px;box-shadow:0 14px 34px rgba(0,0,0,0.20);}
+.krai-visual-img{width:100%;height:auto;display:block;border-radius:16px;}
+.krai-rating-grid{display:grid;grid-template-columns:repeat(5, 1fr);gap:18px;margin:28px 0 34px;}
+.krai-rating-card{background:linear-gradient(180deg, rgba(17,28,48,0.96), rgba(11,19,33,0.96));border:1px solid rgba(255,255,255,0.08);border-radius:20px;padding:22px 18px;text-align:center;transition:transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;box-shadow:0 10px 24px rgba(0,0,0,0.16);min-height:190px;display:flex;flex-direction:column;justify-content:center;color:#fff;cursor:pointer;font-family:Arial, Helvetica, sans-serif;}
+.krai-rating-card:hover,.krai-rating-card.active{transform:translateY(-6px);box-shadow:0 18px 34px rgba(0,0,0,0.28);border-color:rgba(255,255,255,0.18);}
+.krai-rating-card.active{border-color:#46c4ff;}
+.krai-rating-label{display:inline-block;padding:8px 14px;border-radius:999px;font-weight:700;font-size:14px;margin:0 auto 14px;color:#fff;}
+.krai-leader .krai-rating-label{background:#16a34a;}.krai-compliant .krai-rating-label{background:#65a30d;}.krai-moderate .krai-rating-label{background:#ca8a04;}.krai-high .krai-rating-label{background:#ea580c;}.krai-critical .krai-rating-label{background:#dc2626;}
+.krai-rating-card h4{margin:0 0 10px;font-size:20px;}
+.krai-rating-card p{margin:0;font-size:14px;color:var(--muted);}
+.krai-model-panel{margin:8px 0 34px;background:linear-gradient(180deg, rgba(17,28,48,0.96), rgba(11,19,33,0.96));border:1px solid rgba(255,255,255,0.08);border-radius:24px;padding:28px;box-shadow:0 14px 34px rgba(0,0,0,0.20);}
+.krai-model-header{display:flex;justify-content:space-between;align-items:flex-start;gap:18px;margin-bottom:22px;flex-wrap:wrap;}
+.krai-model-header h3{margin:0 0 6px;font-size:28px;}
+.krai-model-header p{margin:0;color:var(--muted);} .krai-disclaimer{font-size:12px;color:#9fb0c7;margin-top:8px;opacity:0.8;}
+.krai-score-pill{padding:10px 16px;border-radius:999px;background:linear-gradient(90deg, #46c4ff, #6d63ff);font-weight:700;color:#fff;white-space:nowrap;}
+.krai-model-grid{display:grid;grid-template-columns:repeat(4, 1fr);gap:18px;}
+.krai-model-card{background:#0f1a2d;border:1px solid rgba(255,255,255,0.08);border-radius:18px;padding:20px;box-shadow:0 10px 24px rgba(0,0,0,0.16);}
+.krai-model-card h4{margin:0 0 10px;font-size:20px;}.model-score{display:inline-block;padding:8px 12px;border-radius:10px;background:rgba(70,196,255,0.12);color:#46c4ff;font-weight:700;margin-bottom:12px;}.krai-model-card p{margin:0;color:var(--muted);font-size:14px;}
+.krai-summary-grid{display:grid;grid-template-columns:repeat(2, minmax(0,1fr));gap:28px;margin:10px 0 34px;}
+.krai-summary-card{background:linear-gradient(180deg, rgba(17,28,48,0.94), rgba(11,19,33,0.94));border:1px solid rgba(255,255,255,0.08);border-radius:22px;padding:28px;box-shadow:0 12px 34px rgba(0,0,0,0.18);}
+.krai-summary-card h3{margin:0 0 14px;font-size:24px;}
+.vision{text-align:center;}
+.quote{font-size:28px;font-weight:700;margin-top:20px;}
+.contact{text-align:center;}
+.contact-note{color:var(--muted);max-width:760px;margin:16px auto 0;}
+footer{padding:30px 0;text-align:center;color:var(--muted);border-top:1px solid rgba(255,255,255,0.05);}
+@media (max-width: 1024px){.solutions-grid,.two-col,.krai-summary-grid{grid-template-columns:1fr;}.pillars{grid-template-columns:repeat(2,1fr);}.krai-rating-grid{grid-template-columns:repeat(2, 1fr);}.krai-model-grid{grid-template-columns:repeat(2, 1fr);} .hero h1{font-size:48px;}}
+@media (max-width: 640px){.nav-inner{flex-direction:column;align-items:flex-start;}.brand img{height:74px;}.nav-links{gap:14px;}.hero{padding-top:60px;}.hero h1{font-size:38px;}.hero p{font-size:18px;}.section h2{font-size:32px;}.pillars,.krai-rating-grid,.krai-model-grid{grid-template-columns:1fr;}}
+</style></head><body>
+<nav class="navbar"><div class="container nav-inner"><div class="brand"><a href="index.html"><img src="logo.jpg" alt="KalpaneAI logo"></a></div><div class="nav-links"><a href="index.html">Home</a><a href="#challenge">Challenge</a><a href="#solution">Solution</a><a href="#roadmap">Roadmap</a><a href="#contact" class="btn btn-primary">Contact</a></div></div></nav>
+<section class="hero"><div class="container"><h1>Healthcare AI Knowledge Systems</h1><h2>Trusted medical knowledge, made instantly usable</h2><p>KalpaneAI applies Retrieval-Augmented Generation to authoritative medical manuals, hospital guidance, and clinical references so healthcare teams can access grounded answers faster.</p><div class="hero-actions"><a class="btn btn-primary" href="#solution">See How It Works</a><a class="btn btn-secondary" href="index.html">Back to Home</a></div></div></section>
+<section class="section" id="challenge"><div class="container"><h2>The Healthcare Challenge</h2><p class="section-intro">Healthcare teams do not suffer from a lack of information. They suffer from fragmented access, time pressure, and the burden of finding the right source at the right moment.</p><div class="two-col"><div class="card"><h3>What slows teams down</h3><ul class="bullets"><li>Information overload across manuals, guidelines, and internal documents</li><li>Fragmented access to trusted sources</li><li>High cognitive load in time-sensitive environments</li><li>Difficulty comparing general references with local guidance</li></ul></div><div class="card"><h3>What hospitals need</h3><ul class="bullets"><li>Fast access to grounded medical knowledge</li><li>Clear traceability to trusted sources</li><li>Scalable integration across clinical manuals and protocols</li><li>A solution that can evolve toward Netherlands-specific hospital guidance</li></ul></div></div></div></section>
+<section class="section" id="solution"><div class="container"><h2>How KalpaneAI Solves It</h2><p class="section-intro">KalpaneAI starts with trusted content and turns it into a retrieval-first knowledge layer for healthcare professionals.</p><div class="two-col"><div class="card"><h3>Current capability</h3><ul class="bullets"><li>Retrieval from validated medical manuals such as Merck Manual</li><li>Contextual AI-generated responses grounded in retrieved content</li><li>Knowledge navigation that reduces time spent searching long documents</li><li>Expandable architecture for future clinical sources</li></ul></div><div class="card"><h3>Why this matters</h3><ul class="bullets"><li>Supports faster and more confident knowledge access</li><li>Improves consistency in information retrieval</li><li>Creates a scalable foundation for hospital knowledge copilots</li><li>Bridges trusted references with practical AI usability</li></ul></div></div></div></section>
+<section class="section"><div class="container"><h2>What This Can Become</h2><p class="section-intro">KalpaneAI is designed to grow from a trusted medical-manual assistant into a broader healthcare knowledge platform.</p><div class="solutions-grid"><div class="solution-card"><h3>Hospital-specific guidance</h3><p>Integrate local hospital manuals, departmental SOPs, and care pathways with access control and provenance.</p></div><div class="solution-card"><h3>Country-specific expansion</h3><p>Extend from global medical knowledge into Netherlands and EU clinical guidance for more localized relevance.</p></div><div class="solution-card"><h3>Surgical and specialty references</h3><p>Support operating-room, perioperative, specialty, and protocol-based use cases with retrieval-backed responses.</p></div><div class="solution-card"><h3>Patient-friendly explanation mode</h3><p>Translate expert knowledge into accessible explanations for non-specialist audiences when appropriate.</p></div></div></div></section>
+<section class="section" id="roadmap"><div class="container"><h2>Roadmap</h2><p class="section-intro">A pragmatic route from prototype to hospital-ready knowledge system.</p><div class="pillars"><div class="pillar"><strong>Phase 1</strong><p>Trusted manual ingestion and retrieval-backed Q&amp;A.</p></div><div class="pillar"><strong>Phase 2</strong><p>Netherlands and EU clinical source expansion.</p></div><div class="pillar"><strong>Phase 3</strong><p>Hospital protocol integration and access governance.</p></div><div class="pillar"><strong>Phase 4</strong><p>Specialty workflows, explainability, and evaluation.</p></div><div class="pillar"><strong>Phase 5</strong><p>Operational deployment in controlled healthcare settings.</p></div></div></div></section>
+<section class="section contact" id="contact"><div class="container"><h2>Discuss Healthcare AI</h2><p class="section-intro">Interested in hospital knowledge copilots, medical RAG, or local clinical guidance integration?</p><a href="mailto:vishwavasu@kalpaneai.com" class="btn btn-primary">Email KalpaneAI</a></div></section><footer>KalpaneAI © 2026</footer></body></html>
